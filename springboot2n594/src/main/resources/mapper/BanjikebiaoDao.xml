@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.BanjikebiaoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BanjikebiaoEntity" id="banjikebiaoMap">
+        <result property="banji" column="banji"/>
+        <result property="fengmiantu" column="fengmiantu"/>
+        <result property="kebiao" column="kebiao"/>
+        <result property="nianji" column="nianji"/>
+        <result property="jiaoshigonghao" column="jiaoshigonghao"/>
+        <result property="jiaoshixingming" column="jiaoshixingming"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BanjikebiaoVO" >
+		SELECT * FROM banjikebiao  banjikebiao         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BanjikebiaoVO" >
+		SELECT  banjikebiao.* FROM banjikebiao  banjikebiao 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BanjikebiaoView" >
+
+		SELECT  banjikebiao.* FROM banjikebiao  banjikebiao 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BanjikebiaoView" >
+		SELECT * FROM banjikebiao  banjikebiao <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
